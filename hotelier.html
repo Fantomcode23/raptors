@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Styles_hotelier.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <title>Hotel Manager</title>
+</head>
+<body>
+    <a href="#" class="scrolltop" id="scroll-top">
+        <i class='bx bx-chevron-up scrolltop__icon'></i>
+    </a>
+    <header class="l-header" id="header">
+        <nav class="nav bd-container">
+            <a href="#" class="nav__logo"><h1>Quick Bytes.</h1></a>
+
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="#home" class="nav__link active-link">Home</a></li>
+                    <li class="nav__item"><a href="#about" class="nav__link">About</a></li>
+                    <li class="nav__item"><a href="#services" class="nav__link">Services</a></li>
+                    <!-- <li class="nav__item"><a href="{{ url_for('login_page') }}" class="nav__link">Log in</a></li>
+                    <li class="nav__item"><a href="{{ url_for('register_page') }}" class="nav__link">Register</a></li> -->
+                 
+                    <li class="nav__item"><a href="#" class="nav__link">Log Out</a></li>
+                    
+                    <li class="nav__item"><a href="#" class="nav__link">Log in</a></li>
+                    <li class="nav__item"><a href="#" class="nav__link">Register</a></li>
+                    
+                    <li class="nav__item"><a href="#contact" class="nav__link">Contact us</a></li>
+
+                    <li><i class='bx bx-moon change-theme' id="theme-button"></i></li>
+                </ul>
+            </div>
+
+            <div class="nav__toggle" id="nav-toggle">
+                <i class='bx bx-menu'></i>
+            </div>
+        </nav>
+    </header>
+    <main class="l-main">
+        <!--========== HOME ==========-->
+        <section class="home" id="home">
+            <div class="home__container bd-container bd-grid">
+                <div class="home__data">
+                    
+                    <h1 class="home__title">Hotelier</h1>
+                    <h3 class="home__subtitle">Your pending orders are shown below shown here</h3>
+                    
+                </div>
+                
+                <img src="{{url_for('static', filename='styles/img/home.png')}}" alt = "" class="home__img">
+            </div>
+        </section>
+        <table>
+            <thead id="table-header">
+              <tr>
+                  <th>Table</th>
+                  <th>Time</th>
+                  <th>Date</th>
+                  <th>Accomodation</th>
+                  <th></th>
+              </tr>
+              </thead>
+              
+              <tbody>
+              {% for table in tables %}
+                  <tr>
+                      <td>{{ table.table }}</td>
+                      <td>{{ table.time }}</td>
+                      <td>{{ table.date }}</td>
+                      <td>{{ table.accomodation }}</td>
+                      <td>
+                          <!-- <a href ='#' class = 'button'>Reserve</a> -->
+                          <form method = 'POST'>
+                              {{ reserve_form.hidden_tag() }}
+                              <input id="reserved_table" name="reserved_table" type="hidden" value="{{ table.table }}">
+                              {{ reserve_form.submit(class = 'button') }}
+                          </form>
+                      </td>
+                  </tr>
+              {% endfor %}
+              </tbody>
+          </table>
+          <footer class="footer section bd-container">
+            <div class="footer__container bd-grid">
+                <div class="footer__content">
+                    <a href="#" class="footer__logo">Quick Bytes</a>
+                    <span class="footer__description">Food Delivery App</span>
+                    <div>
+                        <a href="#" class="footer__social"><i class='bx bxl-facebook'></i></a>
+                        <a href="#" class="footer__social"><i class='bx bxl-instagram'></i></a>
+                        <a href="#" class="footer__social"><i class='bx bxl-twitter'></i></a>
+                    </div>
+                </div>
+          
+                <div class="footer__content">
+                    <h3 class="footer__title">Services</h3>
+                    <ul>
+                        <li><a href="menu.html" class="footer__link">Order Food</a></li>
+                        <li><a href="#" class="footer__link">Table Reservation</a></li>
+                        <li><a href="#" class="footer__link">Delivery</a></li>
+                    </ul>
+                </div>
+          
+                <div class="footer__content">
+                    <h3 class="footer__title">Information</h3>
+                    <ul >
+                        <li><a href="#" class="footer__link">Event</a></li>
+                        <li><a href="#" class="footer__link">Contact us</a></li>
+                        <li><a href="#" class="footer__link">Privacy policy</a></li>
+                        <li><a href="#" class="footer__link">Terms of services</a></li>
+                    </ul>
+                </div>
+          
+                <div class="footer__content">
+                    <h3 class="footer__title">Adress</h3>
+                    <ul>
+                        <li>Kothnur Dinne, J.P. Nagar 8th phase</li>
+                        <li>Bengaluru, Karnataka</li>
+                        <li>0123-456-789</li>
+                        <li>quickbytes@gmail.com</li>
+                    </ul>
+                </div>
+            </div>
+          
+            <p class="footer__copy">&#169; 2024-Team Raptors. All right reserved</p>
+            </footer>
+    
+</body>
+</html>
