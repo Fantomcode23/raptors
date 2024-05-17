@@ -1,9 +1,0 @@
-venv
-restaurant/__pycache__/__init__.cpython-311.pyc
-restaurant/__pycache__/forms.cpython-311.pyc
-restaurant/__pycache__/models.cpython-311.pyc
-restaurant/__pycache__/routes.cpython-311.pyc
-
-instance/
-
-restaurant/__pycache__/
