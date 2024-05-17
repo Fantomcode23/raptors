@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static',filename='styles/css/style.css') }}">
+    
+    <title>Cart</title>
+</head>
+<body>
+    
+    <div id="cart-container">
+        <h2>Cart Items:</h2>
+        
+        <div class="cart-item">
+            <img src="{{ url_for('static', filename='styles/img/plate1.png') }}" class="image">
+                <div class="cart-header">
+                <h4>Chipotle Salad</h4>
+                
+            </div>
+            <div class="product-details">
+                <p>A Delicious Dish</p></li>
+            </div>
+            <div class="counter">
+                
+            </div>
+            <div class="price-section">
+                <p>₹10.99</p>
+            </div>
+        </div>
+        
+        
+        <!-- Add more cart items here -->
+        <div class="checkout-section">
+            <p>Total: ₹10.99</p>
+            <a href="{{ url_for('table_page') }}"><button>Proceed to Checkout</button></a>
+        </div>
+    </div>
+</body>
+</html>

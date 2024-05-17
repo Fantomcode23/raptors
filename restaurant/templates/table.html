@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!--========== BOX ICONS ==========-->
+    <link
+      href="https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+
+    <!--========== CSS ==========-->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static',filename='styles/css/style-table.css') }}"
+    />
+  </head>
+
+  <body>
+    <!--========== SCROLL TOP ==========-->
+    <a href="#" class="scrolltop" id="scroll-top">
+      <i class="bx bx-chevron-up scrolltop__icon"></i>
+    </a>
+
+    <!--========== HEADER ==========-->
+    <header class="l-header" id="header">
+      <nav class="nav bd-container">
+        <a href="#" class="nav__logo"><h1>Quick Bytes</h1></a>
+
+        <div class="nav__menu" id="nav-menu">
+          <ul class="nav__list">
+            <li class="nav__item">
+              <a href="{{ url_for('home_page' )}}" class="nav__link active-link"
+                >Home</a
+              >
+            </li>
+            
+            {% if current_user.is_authenticated %}
+            <li class="nav__item">
+              <a href="{{ url_for('logout') }}" class="nav__link">Log Out</a>
+            </li>
+            {% else %}
+            <li class="nav__item">
+              <a href="{{ url_for('login_page') }}" class="nav__link">Log in</a>
+            </li>
+            <li class="nav__item">
+              <a href="{{ url_for('login_page') }}" class="nav__link"
+                >Register</a
+              >
+            </li>
+            {% endif %}
+            
+            <li><i class="bx bx-moon change-theme" id="theme-button"></i></li>
+          </ul>
+        </div>
+
+        <div class="nav__toggle" id="nav-toggle">
+          <i class="bx bx-menu"></i>
+        </div>
+      </nav>
+    </header>
+
+    <section class="menu section bd-container" id="menu">
+      <h1 class="section-title">Dine In Time Slot</h1>
+    </section>
+
+    <form action="{{ url_for('payment_page') }}" method="post" class="form">
+     <div id="time_slot"> <label for="time_slot">Time Slot:</label>
+      <input type="time"  name="time_slot"  /><br /><br />
+      <label for="date">Date:</label>
+      <input type="date" name="date" /><br /><br />
+      <input type="submit" value="Proceed to Payment" id="view_cart"/>
+    </div>
+    </form>
+
+    <!--========== FOOTER ==========-->
+    <footer class="footer section bd-container">
+      <div class="footer__container bd-grid">
+        <div class="footer__content">
+          <a href="#" class="footer__logo">Quick Bytes</a>
+          <span class="footer__description">Food Ordering App</span>
+          <div>
+            <a href="#" class="footer__social"
+              ><i class="bx bxl-facebook"></i
+            ></a>
+            <a href="#" class="footer__social"
+              ><i class="bx bxl-instagram"></i
+            ></a>
+            <a href="#" class="footer__social"
+              ><i class="bx bxl-twitter"></i
+            ></a>
+          </div>
+        </div>
+
+        <div class="footer__content">
+          <h3 class="footer__title">Services</h3>
+          <ul>
+            <li></li>
+            <li><a href="#" class="footer__link">Tailored Timings</a></li>
+            <li><a href="#" class="footer__link">Order Food</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__content">
+          <h3 class="footer__title">Information</h3>
+          <ul>
+            <li><a href="#" class="footer__link">Event</a></li>
+            <li><a href="#" class="footer__link">Contact us</a></li>
+            <li><a href="#" class="footer__link">Privacy policy</a></li>
+            <li><a href="#" class="footer__link">Terms of services</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__content">
+          <h3 class="footer__title">Address</h3>
+          <ul>
+            <li>Kothnur Dinne, J.P. Nagar 8th Phase</li>
+            <li>Bengaluru, Karnataka</li>
+            <li>0123-456-789</li>
+            <li>quickbytes@gmail.com</li>
+          </ul>
+        </div>
+      </div>
+      <p class="footer__copy">&#169; 2024-Team Raptors. All rights reserved</p>
+    </footer>
+    <!--========== FOOTER ENDS HERE ==========-->
+
+    <!--========== SCROLL REVEAL ==========-->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!--========== MAIN JS ==========-->
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>

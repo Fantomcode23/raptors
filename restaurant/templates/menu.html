@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!--========== BOX ICONS ==========-->
+    <link
+      href="https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+
+    <!--========== CSS ==========-->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static',filename='styles/css/styles.css') }}"
+    />
+
+    <title>Menu</title>
+  </head>
+  <body>
+    <!-- {% for mesg in get_flashed_messages() %}
+  <h1>{{ mesg }}</h1>
+  {% endfor %} -->
+
+    <!--========== SCROLL TOP ==========-->
+    <a href="#" class="scrolltop" id="scroll-top">
+      <i class="bx bx-chevron-up scrolltop__icon"></i>
+    </a>
+
+    <!--========== HEADER ==========-->
+    <header class="l-header" id="header">
+      <nav class="nav bd-container">
+        <a href="#" class="nav__logo"><h1>Quick Bytes</h1></a>
+
+        <div class="nav__menu" id="nav-menu">
+          <ul class="nav__list">
+            <li class="nav__item">
+              <a href="{{ url_for('home_page' )}}" class="nav__link active-link"
+                >Home</a
+              >
+            </li>
+
+            {% if current_user.is_authenticated %}
+            <li class="nav__item">
+              <a href="{{ url_for('logout') }}" class="nav__link">Log Out</a>
+            </li>
+            {% else %}
+            <li class="nav__item">
+              <a href="{{ url_for('login_page') }}" class="nav__link">Log in</a>
+            </li>
+            <li class="nav__item">
+              <a href="{{ url_for('login_page') }}" class="nav__link"
+                >Register</a
+              >
+            </li>
+            {% endif %}
+
+            <li><i class="bx bx-moon change-theme" id="theme-button"></i></li>
+          </ul>
+        </div>
+
+        <div class="nav__toggle" id="nav-toggle">
+          <i class="bx bx-menu"></i>
+        </div>
+      </nav>
+      {% with messages = get_flashed_messages(with_categories=true) %} {% if
+      messages %} {% for category, message in messages %}
+      <div class="alert alert-{{ category }}">
+        <button
+          type="button"
+          class="m1-2 mb-1 close"
+          data-dismiss="alert"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+        {{ message }}
+      </div>
+      {% endfor %} {% endif %} {% endwith %}
+    </header>
+    <!--========== HEADER ENDS ==========-->
+
+    <!-- ========== MENU ==========-->
+    <section class="menu section bd-container" id="menu">
+      <h2 class="section-title">Menu</h2>
+
+      <!-- ========== ITEMS ==========-->
+      <div class="menu__container bd-grid">
+        {% for item in items %}
+        <div class="menu__content">
+          <!-- Placeholder image for now -->
+          <img
+            src="{{ url_for('static', filename='styles/img/plate1.png') }}"
+            alt=""
+            class="menu__img"
+          />
+
+          <!-- Dynamic image for the item -->
+          <img
+            src="{{ url_for('static', filename='styles/img/' + item.source) }}"
+            alt=""
+            class="menu__img"
+          />
+
+          <h3 class="menu__name">Chipotle Salad</h3>
+          <span class="menu__detail">Delicious dish</span>
+          <span class="menu_detail">{{ item.description }}</span>
+          <span class="menu__price">₹10.99</span>
+          <form action="" method="post">
+            <input type="hidden" name="item_id" value="{{ item.id }}" />
+            <input type="hidden" name="item_name" value="{{ item.name }}" />
+            <!-- Add this line -->
+            <input type="hidden" name="item_price" value="{{ item.price }}" />
+            <input type="submit" class="button menu__button" value="Add To Cart" />
+          </form>
+        </div>
+        {% endfor %} {% for item in items %}
+        <div class="menu__content">
+          <!-- Placeholder image for now -->
+          <img
+            src="{{ url_for('static', filename='styles/img/plate2.png') }}"
+            alt=""
+            class="menu__img"
+          />
+
+          <!-- Dynamic image for the item -->
+          <img
+            src="{{ url_for('static', filename='styles/img/' + item.source) }}"
+            alt=""
+            class="menu__img"
+          />
+
+          <h3 class="menu__name">Veggie Salad</h3>
+          <span class="menu__detail">Delicious dish</span>
+          <span class="menu_detail">{{ item.description }}</span>
+          <span class="menu__price">₹{{ item.price }}</span>
+          <form action="" method="post">
+            <input type="hidden" name="item_id" value="{{ item.id }}" />
+            <input class="button menu__button" value="Unavailable" />
+          </form>
+        </div>
+        {% endfor %} {% for item in items %}
+        <div class="menu__content">
+          <!-- Placeholder image for now -->
+          <img
+            src="{{ url_for('static', filename='styles/img/plate3.png') }}"
+            alt=""
+            class="menu__img"
+          />
+
+          <!-- Dynamic image for the item -->
+          <img
+            src="{{ url_for('static', filename='styles/img/' + item.source) }}"
+            alt=""
+            class="menu__img"
+          />
+
+          <h3 class="menu__name">Paneer Tikka Salad</h3>
+          <span class="menu__detail">Delicious dish</span>
+          <span class="menu_detail">{{ item.description }}</span>
+          <span class="menu__price">₹{{ item.price }}</span>
+          <form action="" method="post">
+            <input type="hidden" name="item_id" value="{{ item.id }}" />
+            <input class="button menu__button" value="Unavailable" />
+          </form>
+        </div>
+
+        {% endfor %}
+      </div>
+    </section>
+    <!-- ========== MENU ENDS ==========-->
+
+    <!--========== FOOTER ==========-->
+    <footer class="footer section bd-container">
+      <div class="footer__container bd-grid">
+        <div class="footer__content">
+          <a href="#" class="footer__logo">Quick Bytes</a>
+          <span class="footer__description">Food Delivery App</span>
+          <div>
+            <a href="#" class="footer__social"
+              ><i class="bx bxl-facebook"></i
+            ></a>
+            <a href="#" class="footer__social"
+              ><i class="bx bxl-instagram"></i
+            ></a>
+            <a href="#" class="footer__social"
+              ><i class="bx bxl-twitter"></i
+            ></a>
+          </div>
+        </div>
+
+        <div class="footer__content">
+          <h3 class="footer__title">Services</h3>
+          <ul>
+            <li><a href="#" class="footer__link">Order Food</a></li>
+            <li>
+              <a href="#" class="footer__link">Tailored Timings</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="footer__content">
+          <h3 class="footer__title">Information</h3>
+          <ul>
+            <li><a href="#" class="footer__link">Event</a></li>
+            <li><a href="#" class="footer__link">Contact us</a></li>
+            <li><a href="#" class="footer__link">Privacy policy</a></li>
+            <li><a href="#" class="footer__link">Terms of services</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__content">
+          <h3 class="footer__title">Address</h3>
+          <ul>
+            <li>Kothnur Dinne, J.P. Nagar 8th Phase</li>
+            <li>Bengaluru, Karnataka</li>
+            <li>0123-456-987</li>
+            <li>quickbytes@gmail.com</li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="footer__copy">&#169; 2021-Team Raptors. All right reserved</p>
+    </footer>
+    <!--========== FOOTER ENDS HERE ==========-->
+
+    <!--========== SCROLL REVEAL ==========-->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!--========== MAIN JS ==========-->
+    <script src="static/styles/js/main.js"></script>
+  </body>
+</html>

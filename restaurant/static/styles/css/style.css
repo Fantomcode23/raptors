@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+body {
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #048654;
+}
+@keyframes animate{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 100;
+    }
+}
+
+
+
+#navcontent {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+#navcontent li {
+    margin-right: 20px;
+}
+
+#navcontent a {
+    color: #fff;
+    text-decoration: none;
+}
+
+#cart-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 2px solid #ddd;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.696);
+    border-radius: 20px;
+    line-height: 0.5;
+    animation: animate;
+    animation-duration: 1s;
+}
+
+.cart-item {
+    
+    padding: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    height: 100px;
+    justify-content: space-evenly;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    align-items: center;
+    
+}
+
+
+.image
+{
+    padding-bottom: 5px;
+    margin: 20px;
+    width: 90px;
+    display: flex;
+    flex-direction: column; 
+}
+
+.cart-header {
+    
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    font-size: 22px;
+    
+   
+}
+
+.product-details {
+    
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+}
+
+.counter {
+    display: flex;
+    align-items: center;
+}
+
+.counter button {
+    padding: 5px;
+}
+
+.counter span {
+    margin: 0 10px;
+}
+
+.price-section {
+    font-size: 16px;
+    color: #333;
+    margin-top: 1px;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+}
+
+.checkout-section {
+    border-top: 1px solid #ddd;
+    padding-top: 10px;
+}
+
+.checkout-section button {
+    padding: 10px 20px;
+    background-color: #048654;
+    color: white;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+   
+}
+button:hover{
+    background-color: #069c54;
+    transform: scale(1.05, 1.05);
+    box-shadow: 3px 3px 2px #069c54;
+    transition-property: transform box-shadow;
+    transition-duration: 0.5s;
+    transition-timing-function: ease;
+}
+ul{
+    list-style-type: none;
+}
+ul li{
+    display: inline;
+}
