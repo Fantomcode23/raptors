@@ -42,25 +42,25 @@ Quick Bytes is a Flask-based restaurant management system designed to streamline
 - Serve food to authenticated customers.
 
 ## Home page
-![Alt text](file_2024-05-17_02.00.19.png)
+![Alt text](README/file_2024-05-17_02.00.19.png)
 ## Registration page
-![Alt text](file_2024-05-17_02.01.12.png)
+![Alt text](README/file_2024-05-17_02.01.12.png)
 ## Sign Up page
-![Alt text](file_2024-05-17_02.01.48.png)
+![Alt text](README/file_2024-05-17_02.01.48.png)
 ## Restaurants page 
-![Alt text](file_2024-05-17_02.02.35.png)
+![Alt text](README/file_2024-05-17_02.02.35.png)
 ## Menu Page 
-![Alt text](file_2024-05-17_02.03.01.png)
+![Alt text](README/file_2024-05-17_02.03.01.png)
 ## Carts Page 
-![Alt text](file_2024-05-17_02.03.21.png)
+![Alt text](README/file_2024-05-17_02.03.21.png)
 ## Time-Slot Page 
-![Alt text](file_2024-05-17_02.03.51.png)
+![Alt text](README/file_2024-05-17_02.03.51.png)
 ## Payment Gateway 
-![Alt text](file_2024-05-17_02.05.03.png)
+![Alt text](README/file_2024-05-17_02.05.03.png)
 ## Order-Confirmation Page
-![Alt text](file_2024-05-17_02.05.55.png)
+![Alt text](README/file_2024-05-17_02.05.55.png)
 ## Hotelier Page
-![Alt text](file_2024-05-17_02.06.34.png)
+![Alt text](README/file_2024-05-17_02.06.34.png)
 
 
 
